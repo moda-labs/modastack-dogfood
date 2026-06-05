@@ -1,0 +1,6 @@
+.modastack/state/
+.modastack/sessions/
+.modastack/local.yaml
+.claude/
+worktrees/
+.env
