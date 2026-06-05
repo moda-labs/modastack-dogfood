@@ -1,0 +1,17 @@
+name: smoke-test
+trigger: When an issue labeled "smoke-test" is assigned for a quick verification task.
+description: >
+  Single-step smoke test workflow for CI. Reads the issue, writes a short
+  response as a comment, and closes the issue. Designed to complete in
+  under 60 seconds.
+
+steps:
+  - name: respond
+    agent: editor
+    prompt: |
+      Read the GitHub issue assigned to you. Write a brief comment on the
+      issue acknowledging the task, then close the issue with a comment
+      that says "Smoke test complete."
+
+      Do NOT create any files, branches, or PRs. Just comment and close.
+    timeout: 120
