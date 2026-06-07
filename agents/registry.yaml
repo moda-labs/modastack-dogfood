@@ -1,0 +1,4 @@
+agents:
+  content-team:
+    version: "1.0.0"
+    description: "Content knowledge base — manager, editor, researcher, fact-checker"

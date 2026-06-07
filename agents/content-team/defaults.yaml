@@ -1,13 +1,17 @@
+version: "1.0.0"
+role: manager
+event_sources:
+  - github
 task_tracking:
   system: github-issues
   project: PLAYBOOK
   trigger_labels:
-  - agent
-  - content
-  - research
+    - agent
+    - content
+    - research
   skip_labels:
-  - blocked
-  - human-only
+    - blocked
+    - human-only
 agent:
   tool: claude
   max_parallel: 2
