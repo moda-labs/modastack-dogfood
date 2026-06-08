@@ -1,0 +1,7 @@
+packs:
+  - name: content-review
+    version: "1.0.0"
+    description: >
+      Knowledge base content team. Coordinates researchers, editors,
+      and fact-checkers to produce and maintain documentation.
+    path: content-review/

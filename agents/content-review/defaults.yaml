@@ -1,0 +1,30 @@
+version: "1.0.0"
+
+# Entry point role for `modastack start content-review`
+role: manager
+
+event_sources:
+  - github
+
+task_tracking:
+  system: github-issues
+  project: PLAYBOOK
+  trigger_labels:
+    - agent
+    - content
+    - research
+  skip_labels:
+    - blocked
+    - human-only
+
+agent:
+  tool: claude
+  max_parallel: 2
+
+verify:
+  review_required: true
+  auto_merge: false
+
+context:
+  content_dirs: "guides/ runbooks/ research/"
+  style_guide: "Clear, concise, actionable. Write for practitioners, not academics."
