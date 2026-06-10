@@ -1,10 +1,13 @@
 version: "1.0.0"
 
-# Entry point role for `modastack start content-review`
-role: manager
+entry_point: manager
+chat: slack
 
-event_sources:
-  - github
+services:
+  - name: github
+    events: true
+  - name: email
+    events: true
 
 task_tracking:
   system: github-issues
@@ -17,10 +20,6 @@ task_tracking:
     - blocked
     - human-only
 
-agent:
-  tool: claude
-  max_parallel: 2
-
 verify:
   review_required: true
   auto_merge: false
@@ -28,3 +27,11 @@ verify:
 context:
   content_dirs: "guides/ runbooks/ research/"
   style_guide: "Clear, concise, actionable. Write for practitioners, not academics."
+
+venn_api_key: ${VENN_API_KEY}
+
+monitors:
+  - name: new-emails
+    command: 'venn --json tools execute -s gmail -t list_emails -a ''{"userId": "me", "maxResults": 10, "q": "is:unread"}'''
+    interval: 5m
+    event: email/received
