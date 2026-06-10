@@ -1,9 +1,0 @@
-.env
-sessions/
-state/
-agents/
-roles/
-tools/
-workflows/
-monitors/
-agent.md
