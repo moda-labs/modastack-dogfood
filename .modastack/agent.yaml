@@ -1,6 +1,7 @@
 version: 1.0.0
 entry_point: manager
 chat: slack
+event_server: ${MODASTACK_EVENT_SERVER}
 services:
 - name: github
   events: true

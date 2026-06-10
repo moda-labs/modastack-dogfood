@@ -3,6 +3,10 @@ version: "1.0.0"
 entry_point: manager
 chat: slack
 
+# Cloud event server URL in production (.env), empty for an
+# auto-started local server (CI smoke tests, local dev).
+event_server: ${MODASTACK_EVENT_SERVER}
+
 services:
   - name: github
     events: true
